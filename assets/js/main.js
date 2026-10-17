@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Fullscreen menu ---------- */
   const burger = document.querySelector('.hamburger');
+  const closeMenu = () => {
+    document.body.classList.remove('menu-open');
+    document.querySelectorAll('.site-menu .menu-link').forEach(a => a.style.transitionDelay = '0ms');
+  };
   if (burger) {
     burger.addEventListener('click', () => {
       document.body.classList.toggle('menu-open');
@@ -22,39 +26,81 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') document.body.classList.remove('menu-open');
+      if (e.key === 'Escape') closeMenu();
     });
   }
 
+  /* ---------- Anchor links: jump within the page, close the menu ---------- */
+  const jumpTo = hash => {
+    const target = document.getElementById(hash.slice(1));
+    if (!target) return false;
+    const y = target.getBoundingClientRect().top + window.scrollY - 70;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    setTimeout(() => window.dispatchEvent(new Event('scroll')), 400);
+    return true;
+  };
+  document.querySelectorAll('a[href*="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const url = new URL(a.getAttribute('href'), location.href);
+      const samePage = url.pathname === location.pathname;
+      const hash = url.hash;
+      closeMenu();
+      if (samePage && hash) {
+        if (jumpTo(hash)) e.preventDefault();
+      }
+    });
+  });
+  if (location.hash) setTimeout(() => jumpTo(location.hash), 80);
+
   /* ---------- Reveal on scroll ---------- */
+  let countSweep = () => {};
+  /* IntersectionObserver for the smooth case, plus a sweep fallback that catches
+     elements skipped by instant jumps (anchor links, keyboard End, fast scrolling). */
+  const reveals = document.querySelectorAll('.reveal');
+  const sweep = () => {
+    const line = window.scrollY + window.innerHeight + 80;
+    reveals.forEach(el => {
+      if (!el.classList.contains('in') && el.getBoundingClientRect().top + window.scrollY < line) {
+        el.classList.add('in');
+      }
+    });
+    countSweep();
+  };
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => {
-      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); sweep(); }
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }, { threshold: 0.05, rootMargin: '0px 0px 40px 0px' });
+  reveals.forEach(el => io.observe(el));
+  window.addEventListener('scroll', sweep, { passive: true });
+  window.addEventListener('resize', sweep);
+  window.addEventListener('hashchange', () => setTimeout(sweep, 60));
+  sweep();
+  setInterval(sweep, 900); // safety net: stops once everything is revealed (cheap check)
 
   /* ---------- Animated counters ---------- */
   const counters = document.querySelectorAll('[data-count]');
-  const cio = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      const el = en.target;
-      const target = parseInt(el.dataset.count, 10);
-      const prefix = el.dataset.prefix || '';
-      const dur = 1400;
-      const t0 = performance.now();
-      const tick = now => {
-        const p = Math.min((now - t0) / dur, 1);
-        const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = prefix + Math.round(target * eased);
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-      cio.unobserve(el);
-    });
-  }, { threshold: 0.4 });
+  countSweep = () => counters.forEach(el => {
+    if (el.dataset.done) return;
+    if (el.getBoundingClientRect().top < window.innerHeight + 80) startCount(el);
+  });
+  function startCount(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    const target = parseInt(el.dataset.count, 10);
+    const prefix = el.dataset.prefix || '';
+    const dur = 1400;
+    const t0 = performance.now();
+    const tick = now => {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
   counters.forEach(el => cio.observe(el));
+  window.addEventListener('scroll', countSweep, { passive: true });
 
   /* ---------- UGC carousel: drag to scroll ---------- */
   const carousel = document.querySelector('.ugc-carousel');
