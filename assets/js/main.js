@@ -1,6 +1,14 @@
 /* DignaStudio static site — interactions */
 
 document.addEventListener('DOMContentLoaded', () => {
+  /* ---------- Header: white background after scrolling ---------- */
+  const header = document.querySelector('.site-header');
+  if (header) {
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
 
   /* ---------- Fullscreen menu ---------- */
   const burger = document.querySelector('.hamburger');
@@ -69,26 +77,30 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async e => {
       e.preventDefault();
       const status = form.querySelector('.form-status');
-      // If the Formspree endpoint is still the placeholder, fall back to email.
-      if (form.action.includes('YOUR_FORM_ID')) {
-        const d = new FormData(form);
-        const subject = d.get('subject') || 'New project inquiry';
-        const body = `Name: ${d.get('name')}\nPhone: ${d.get('phone')}\nEmail: ${d.get('email')}\n\n${d.get('message')}`;
-        window.location.href = `mailto:digna.lambrichtsx@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        return;
-      }
+      const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
+      const data = new FormData(form);
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = 'Sending…'; }
       try {
-        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        const res = await fetch('https://formsubmit.co/ajax/digna.lambrichtsx@gmail.com', {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' }
+        });
+        const out = await res.json().catch(() => ({}));
         if (res.ok) {
           form.reset();
           status.style.display = 'block';
-          status.textContent = 'Thanks — your message is on its way.';
+          status.style.color = '#9fe0a8';
+          status.textContent = 'Thanks — your message is on its way. I\u2019ll get back to you soon!';
+        } else {
+          throw new Error(out.message || 'send failed');
         }
       } catch (err) {
         status.style.display = 'block';
         status.style.color = '#e8a09a';
-        status.textContent = 'Something went wrong. Please email me directly instead.';
+        status.textContent = 'Something went wrong — please email me directly at digna.lambrichtsx@gmail.com.';
       }
+      if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || 'Submit'; }
     });
   }
 });

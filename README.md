@@ -35,8 +35,8 @@ Optional: buy a domain and connect it under Settings → Pages → Custom domain
 |---|---|---|
 | UGC carousel covers | `index.html` (search "UGC CAROUSEL") | The original carousel was fed by Framer's CMS, so it couldn't be copied automatically. Drop your video covers into `assets/images/` and replace the placeholder cards. |
 | Stat counters | `index.html` (search `data-count`) | "6" years and "+100" content are placeholders — the real numbers live in your Framer CMS and are animated, so I couldn't read the target values. |
-| LinkedIn / Instagram links | every page (search `#LINKEDIN` / `#INSTAGRAM`) | Your Framer site also had these as empty placeholders, so they're stubs. |
-| Contact form | `contact.html` | Create a free form at formspree.io, then replace `YOUR_FORM_ID` in the form action. Until then, submitting opens the visitor's email app with the message pre-filled. |
+| LinkedIn / Instagram links | done | Wired to linkedin.com/in/digna-lambrichts and instagram.com/diignaa. |
+| Contact form | `contact.html` | Already wired to FormSubmit.co (no account needed). The first time someone submits, you get one activation email — click it once and all messages arrive in your inbox. |
 | Email address | everywhere | Currently `digna.lambrichtsx@gmail.com` (as on the live site). |
 
 ## Editing tips
