@@ -30,13 +30,19 @@
   </div>
 </header>
 <main class="page-main">
-<nav class="site-menu">
-  <ul>
-    <li><a class="menu-link" href="../index.html">Home</a></li><li><a class="menu-link" href="../about.html">About</a></li>
-    <li><a class="menu-link" href="../work.html">Our Work</a></li>
-    <li><a class="menu-link" href="../contact.html">Contact</a></li>
-    <li class="menu-social"><a class="menu-link" href="https://www.linkedin.com/in/digna-lambrichts">LN</a> <a class="menu-link" href="https://www.instagram.com/diignaa/">IG</a></li>
-  </ul>
+<nav class="site-menu" aria-hidden="true">
+  <div class="menu-panel">
+    <ul class="menu-list">
+      <li><a class="menu-link" href="../index.html"><span class="roll"><span>Home</span><span aria-hidden="true">Home</span></span></a></li>
+      <li><a class="menu-link" href="../about.html"><span class="roll"><span>About</span><span aria-hidden="true">About</span></span></a></li>
+      <li><a class="menu-link" href="../work.html"><span class="roll"><span>Projects</span><span aria-hidden="true">Projects</span></span><sup class="menu-count">(4)</sup></a></li>
+      <li><a class="menu-link" href="../contact.html"><span class="roll"><span>Contact</span><span aria-hidden="true">Contact</span></span></a></li>
+    </ul>
+    <div class="menu-social">
+      <div class="menu-social-h">Social</div>
+      <div class="menu-social-links"><a href="https://www.linkedin.com/in/digna-lambrichts">LN</a><a href="https://www.instagram.com/diignaa/">IG</a></div>
+    </div>
+  </div>
 </nav>
 
 <section class="detail-hero">
@@ -118,7 +124,10 @@
       <div class="footer-cta">
         <span class="corner tl"></span><span class="corner tr"></span>
         <span class="corner bl"></span><span class="corner br"></span>
-        <a class="footer-mail" href="mailto:digna.lambrichtsx@gmail.com">digna.lambrichtsx@gmail.com</a>
+        <a class="footer-swap" href="mailto:digna.lambrichtsx@gmail.com" aria-label="Email Digna">
+          <span class="fs-line fs-a">Let us help you take your social media to the next level</span>
+          <span class="fs-line fs-b" aria-hidden="true">digna.lambrichtsx@gmail.com</span>
+        </a>
       </div>
       <div class="footer-bar">
         <span>© 2026 DignaStudio. All rights reserved.</span>

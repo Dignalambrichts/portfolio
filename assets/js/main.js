@@ -12,22 +12,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Fullscreen menu ---------- */
   const burger = document.querySelector('.hamburger');
-  const closeMenu = () => {
-    document.body.classList.remove('menu-open');
-    document.querySelectorAll('.site-menu .menu-link').forEach(a => a.style.transitionDelay = '0ms');
+  const menu = document.querySelector('.site-menu');
+  let menuTimer = null;
+  const setMenu = open => {
+    if (menu) menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    if (open) {
+      clearTimeout(menuTimer);
+      menu && menu.classList.remove('closing');
+      document.body.classList.add('menu-open');
+    } else if (document.body.classList.contains('menu-open')) {
+      // close like the original: dark panel wipes up, revealing the page behind
+      menu && menu.classList.add('closing');
+      menuTimer = setTimeout(() => {
+        document.body.classList.remove('menu-open');
+        menu && menu.classList.remove('closing');
+      }, 620);
+    }
   };
+  const closeMenu = () => setMenu(false);
   if (burger) {
-    burger.addEventListener('click', () => {
-      document.body.classList.toggle('menu-open');
-      // stagger menu links
-      document.querySelectorAll('.site-menu .menu-link').forEach((a, i) => {
-        a.style.transitionDelay = document.body.classList.contains('menu-open')
-          ? (80 + i * 60) + 'ms' : '0ms';
-      });
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeMenu();
-    });
+    burger.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
   }
 
   /* ---------- Anchor links: jump within the page, close the menu ---------- */
