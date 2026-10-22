@@ -655,9 +655,9 @@ a.pill-dark:hover { background: #000; }
 .pv-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 367px)); gap: 24px; margin-top: 56px; }
 .pv-stats .v { font-family: var(--display); font-size: 40px; line-height: 1; color: #B75D69; }
 .pv-stats .l { font-size: 24px; color: #fff; margin-top: 10px; letter-spacing: .01em; }
-.pv-mixed { display: flex; align-items: baseline; flex-wrap: wrap; gap: 18px; }
-.pv-mixed .w1 { font-family: var(--display); font-size: clamp(26px, 3vw, 41px); font-weight: 400; }
-.pv-mixed .w2 { font-family: var(--sans); font-size: clamp(36px, 4.3vw, 56px); font-weight: 500; letter-spacing: -0.02em; }
+.pv-mixed { display: block; }
+.pv-mixed .w1 { display: block; font-family: var(--display); font-size: clamp(26px, 3vw, 41px); font-weight: 400; line-height: 1.05; }
+.pv-mixed .w2 { display: block; font-family: var(--sans); font-size: clamp(36px, 4.3vw, 56px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; }
 .pv-duo { display: grid; gap: clamp(24px, 6vw, 100px); }
 .pv-duo.c-73 { grid-template-columns: 7fr 3fr; } .pv-duo.c-37 { grid-template-columns: 3fr 7fr; }
 .pv-duo h3 { font-size: clamp(34px, 4vw, 56px); font-weight: 600; letter-spacing: -0.03em; margin: 0; color: inherit; }
@@ -682,9 +682,21 @@ a.pill-dark:hover { background: #000; }
 /* --- Stiphout landscape full-width images --- */
 .full-imgs { display: flex; flex-direction: column; gap: clamp(28px, 4vw, 56px); }
 .full-imgs img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+.natural-imgs { display: flex; flex-direction: column; gap: clamp(28px, 4vw, 56px); }
+.natural-imgs img { width: 100%; height: auto; display: block; }
 
 @media (max-width: 860px) {
   .mk-top, .pv-duo.c-73, .pv-duo.c-37 { grid-template-columns: 1fr; }
   .pv-stats { grid-template-columns: 1fr; gap: 34px; }
   .sy-subcats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* --- Malmö page --- */
+.mal-courses { margin-top: 22px; display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,.18); }
+.mal-course { display: flex; gap: 28px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,.18); font-size: 20px; color: #fff; }
+.mal-course .yr { font-family: var(--condensed); font-size: 34px; color: #6FE4FF; min-width: 70px; }
+.mal-video { width: 100%; display: block; background: #000; }
+.mal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 3vw, 40px); align-items: start; }
+.mal-grid img { width: 100%; height: auto; display: block; }
+.mal-grid .cap { font-size: 14px; color: #555; margin-top: 12px; text-transform: uppercase; letter-spacing: .02em; }
+@media (max-width: 700px) { .mal-grid { grid-template-columns: 1fr; } }
