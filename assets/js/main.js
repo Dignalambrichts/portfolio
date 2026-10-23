@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       menuTimer = setTimeout(() => {
         document.body.classList.remove('menu-open');
         menu && menu.classList.remove('closing');
-      }, 620);
+      }, 450);
     }
   };
   const closeMenu = () => setMenu(false);

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dignastudio.com/sitemap.xml
