@@ -119,6 +119,9 @@ body.menu-open .site-menu.closing { opacity: 0; visibility: visible; pointer-eve
 .menu-social-links { display: flex; gap: 20px; font-size: 16px; font-weight: 500; }
 .menu-social-links a:hover { opacity: .6; }
 @media (max-width: 700px) {
+  .site-footer { position: static; }
+  .footer-inner { min-height: auto; padding-top: 56px; }
+ {
   .menu-list li { height: 70px; } .menu-link, .menu-link .roll, .menu-link .roll > span { height: 62px; line-height: 62px; }
   .menu-count { top: 6px; right: -22px; }
 }
@@ -646,9 +649,9 @@ a.pill-dark:hover { background: #000; }
 /* ================= V10 additions ================= */
 /* numbered section heads (Perandory numerals like the original) */
 .sec-head { display: flex; align-items: flex-start; gap: clamp(20px, 3vw, 42px); }
-.sec-num { font-family: var(--condensed); font-size: clamp(56px, 8vw, 110px); line-height: .8; letter-spacing: 0; margin: 0; }
+.sec-num { font-family: var(--condensed); font-size: clamp(56px, 8vw, 110px); line-height: 1; letter-spacing: 0; margin: 0; }
 .sec-num.blue { color: #6FE4FF; } .sec-num.red { color: #C0322D; } .sec-num.pink { color: #B75D69; }
-.sec-head .mid-title, .sec-head .big-title { margin: 0; padding-top: clamp(8px, 2vw, 22px); }
+.sec-head .mid-title, .sec-head .big-title { margin: 0; padding-top: 0; }
 
 /* --- Sydney --- */
 .sy-subcats { display: grid; grid-template-columns: repeat(2, minmax(0, 271px)); gap: 44px 20px; margin-top: 40px; }
@@ -714,3 +717,20 @@ a.pill-dark:hover { background: #000; }
 .mal-grid img { width: 100%; height: auto; display: block; }
 .mal-grid .cap { font-size: 14px; color: #555; margin-top: 12px; text-transform: uppercase; letter-spacing: .02em; }
 @media (max-width: 700px) { .mal-grid { grid-template-columns: 1fr; } }
+
+/* --- v18: sins grid, card rows, marquee on mobile --- */
+.sin-grid {
+  background: #1b1b1c; border-radius: 20px;
+  padding: clamp(32px, 6vw, 56px);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 26px clamp(28px, 6vw, 80px);
+  margin-top: 44px;
+}
+.sin-grid span { color: #fff; font-size: clamp(18px, 4.8vw, 22px); }
+@media (max-width: 700px) {
+  .ld-row3 { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .marquee { overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding: 26px 20px 30px; margin-left: -20px; margin-right: -20px; }
+  .marquee-track { animation: none; gap: 16px; }
+  .marquee-track img { height: 300px; scroll-snap-align: center; }
+  .marquee-track img.hide-dup { display: none; }
+}
