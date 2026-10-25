@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     requestAnimationFrame(tick);
   }
+  const cio = new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) countSweep(); }, { threshold: .3 });
   counters.forEach(el => cio.observe(el));
   window.addEventListener('scroll', countSweep, { passive: true });
 
