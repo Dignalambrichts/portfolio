@@ -749,3 +749,13 @@ a.pill-dark:hover { background: #000; }
 .pill-light:hover { background: #e8e8e8; }
 .ugc-stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: clamp(24px,4vw,60px); }
 @media (max-width: 700px) { .ugc-stats { grid-template-columns: 1fr; gap: 32px; } }
+
+/* --- Stoked sport grid (v21) --- */
+.st-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 36px); margin-top: 48px; }
+.st-col { display: flex; flex-direction: column; align-items: flex-start; }
+.st-col .st-word { font-size: clamp(44px, 4.6vw, 90px); margin: 0; }
+.st-col .st-ico { width: 44px; height: auto; margin-top: 8px; }
+.st-col .st-desc { font-size: 15px; line-height: 1.55; color: #E6E6E6; max-width: 34ch; margin: 18px 0 22px; }
+.st-card { width: 100%; border-radius: 16px; overflow: hidden; }
+.st-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+@media (max-width: 900px) { .st-grid { grid-template-columns: 1fr; gap: 44px; } .st-col .st-desc { max-width: 52ch; } }
