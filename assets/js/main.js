@@ -109,6 +109,16 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach(el => cio.observe(el));
   window.addEventListener('scroll', countSweep, { passive: true });
 
+  /* ---------- YouTube cover cards: load player on click ---------- */
+  document.querySelectorAll('.yt-card').forEach(card => {
+    const load = () => {
+      const id = card.dataset.yt;
+      card.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1" title="Video player" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    };
+    card.addEventListener('click', load);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
+  });
+
   /* ---------- UGC carousel: drag to scroll ---------- */
   const carousel = document.querySelector('.ugc-carousel');
   if (carousel) {
