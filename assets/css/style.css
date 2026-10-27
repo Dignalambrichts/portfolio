@@ -816,7 +816,7 @@ a.pill-dark:hover { background: #000; }
 
 /* --- UGC niches (travel / beauty / lifestyle) --- */
 .niche { margin-top: 64px; }
-.niche-h { font-family: var(--serif, Georgia, serif); font-size: clamp(44px, 6vw, 96px); line-height: 1; text-transform: uppercase; color: #fff; margin: 0; }
+.niche-h { font-family: var(--display); font-size: clamp(44px, 6vw, 96px); line-height: 1; text-transform: uppercase; color: #fff; margin: 0; }
 .niche-h.ink { color: var(--ink); }
 .niche-tag { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); margin: 14px 0 0; }
 .niche-tag.ink { color: #888; }
