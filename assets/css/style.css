@@ -760,21 +760,56 @@ a.pill-dark:hover { background: #000; }
 .st-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
 @media (max-width: 900px) { .st-grid { grid-template-columns: 1fr; gap: 44px; } .st-col .st-desc { max-width: 52ch; } }
 
-/* --- UGC page: video grid + photos --- */
-.ugc-vids { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+/* --- UGC page --- */
+.ugc-chips { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 38px; }
+.ugc-chips span { border: 1px solid rgba(255,255,255,.28); border-radius: 100px; padding: 7px 16px; font-size: 13px; letter-spacing: .02em; color: #fff; }
+.ugc-niche-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+.ugc-niche-tags span { border: 1px solid rgba(0,0,0,.18); border-radius: 100px; padding: 8px 18px; font-size: 14px; font-weight: 500; color: var(--ink); }
+.ugc-niche { font-family: var(--condensed); font-size: clamp(26px, 3vw, 40px); color: #fff; margin: 56px 0 22px; text-transform: uppercase; letter-spacing: .01em; }
+.ugc-vids { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 .ugc-play { margin: 0; }
-.ugc-play video { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 16px; display: block; background: #000; }
-.ugc-play figcaption { font-size: 13px; color: var(--muted-dark); margin-top: 10px; }
-.ugc-photos { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+.ugc-frame { position: relative; border-radius: 16px; overflow: hidden; background: #101010; transition: transform .5s cubic-bezier(.22,.9,.3,1), box-shadow .5s ease; }
+.ugc-play:hover .ugc-frame { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+.ugc-frame video { display: block; width: 100%; aspect-ratio: 9/14; object-fit: cover; }
+.ugc-badge { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; cursor: pointer; opacity: 1; transition: opacity .35s ease; }
+.ugc-badge svg { width: 56px; height: 56px; filter: drop-shadow(0 4px 14px rgba(0,0,0,.4)); }
+.ugc-badge:hover svg circle { fill: rgba(0,0,0,.6); }
+.ugc-play.playing .ugc-badge { opacity: 0; pointer-events: none; }
+.ugc-play figcaption { font-size: 13px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-top: 10px; }
+.ugc-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px; margin-top: 48px; }
+.ugc-num { font-family: var(--condensed); font-size: clamp(48px, 6vw, 92px); line-height: 1; color: var(--ink); margin: 0; }
+.ugc-sub { font-size: 14px; color: #777; margin: 10px 0 4px; }
+.ugc-label { font-size: 15px; font-weight: 600; color: var(--ink); margin: 0; }
+.ugc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); margin-top: 48px; }
+.ugc-col h3 { font-size: 20px; font-weight: 600; color: #fff; margin: 0 0 18px; }
+.ugc-col ul { list-style: none; margin: 0; padding: 0; }
+.ugc-col li { font-size: 16px; line-height: 1.5; color: rgba(255,255,255,.78); padding: 10px 0 10px 26px; border-bottom: 1px solid rgba(255,255,255,.09); position: relative; }
+.ugc-col li:last-child { border-bottom: 0; }
+.ugc-col li::before { content: "+"; position: absolute; left: 0; color: #6FE4FF; font-weight: 700; }
+.ugc-col ul.no li::before { content: "\2013"; color: rgba(255,255,255,.35); }
+.ugc-photos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 44px; }
 .ugc-photo { margin: 0; }
-.ugc-photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px; display: block; }
-.ugc-photo figcaption { font-size: 13px; color: var(--muted-dark); margin-top: 10px; }
-@media (max-width: 900px) { .ugc-vids, .ugc-photos { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-@media (max-width: 520px) { .ugc-vids { gap: 12px; } }
-
-/* --- UGC page: niches + trusted-by --- */
-.ugc-niche { font-size: 15px; letter-spacing: .12em; text-transform: uppercase; color: #fff; margin: 56px 0 22px; font-weight: 600; }
-.ugc-niche:first-of-type { margin-top: 48px; }
-.ugc-logos { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; margin-top: 44px; }
-.ugc-logos img { width: 100%; max-height: 74px; object-fit: contain; background: transparent; padding: 14px 8px; border: 1px solid #d8d8d8; border-radius: 14px; }
-@media (max-width: 900px) { .ugc-logos { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.ugc-photo img { width: 100%; aspect-ratio: 4/4.6; object-fit: cover; border-radius: 14px; display: block; transition: transform .5s cubic-bezier(.22,.9,.3,1); }
+.ugc-photo:hover img { transform: scale(1.04); }
+.ugc-photo figcaption { font-size: 13px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: #999; margin-top: 10px; }
+.ugc-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(28px, 5vw, 56px); margin-top: 36px; }
+.ugc-logos img { height: 46px; width: auto; max-width: 150px; object-fit: contain; opacity: .8; transition: opacity .3s ease; }
+.ugc-logos img:hover { opacity: 1; }
+.ugc-cta { position: relative; max-width: 820px; margin: 0 auto; padding: clamp(56px, 7vw, 90px) 24px; }
+.ugc-cta-title { font-family: var(--display); font-size: clamp(30px, 4.4vw, 60px); line-height: 1.15; color: #fff; text-transform: uppercase; margin: 0; }
+.corner { position: absolute; width: 22px; height: 22px; }
+.corner.tl { top: 0; left: 0; border-top: 2px solid #fff; border-left: 2px solid #fff; }
+.corner.tr { top: 0; right: 0; border-top: 2px solid #fff; border-right: 2px solid #fff; }
+.corner.bl { bottom: 0; left: 0; border-bottom: 2px solid #fff; border-left: 2px solid #fff; }
+.corner.br { bottom: 0; right: 0; border-bottom: 2px solid #fff; border-right: 2px solid #fff; }
+@media (max-width: 900px) {
+  .ugc-vids { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ugc-stats { grid-template-columns: 1fr; gap: 40px; }
+  .ugc-cols { grid-template-columns: 1fr; gap: 44px; }
+  .ugc-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .ugc-niche { margin-top: 44px; }
+  .ugc-vids { gap: 16px; }
+  .ugc-logos img { height: 38px; }
+}
