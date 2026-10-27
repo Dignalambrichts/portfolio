@@ -834,9 +834,11 @@ a.pill-dark:hover { background: #000; }
 .ugc-logos img:hover { filter: none; opacity: 1; }
 @media (max-width: 900px) { .ugc-logos img { width: calc(50% - 8px); height: 74px; padding: 13px; } }
 
-/* --- UGC hero strip --- */
-.ugc-strip { position: absolute; left: 0; right: 0; bottom: 0; display: flex; height: clamp(160px, 26vh, 280px); opacity: .28; -webkit-mask-image: linear-gradient(to top, #000 55%, transparent); mask-image: linear-gradient(to top, #000 55%, transparent); pointer-events: none; }
+/* --- UGC hero strip (behind title) --- */
+.ugc-strip { position: absolute; inset: 0; display: flex; height: 100%; opacity: .26; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%); }
 .ugc-strip img { flex: 1; min-width: 0; height: 100%; object-fit: cover; }
-.ugc-strip img + img { border-left: 2px solid #1b1b1c; }
-.detail-hero .ugc-chips { position: relative; z-index: 1; }
-@media (max-width: 700px) { .ugc-strip { height: 150px; } }
+.detail-hero .ugc-strip { z-index: 0; }
+.detail-hero .container { position: relative; z-index: 1; }
+.detail-hero .hero-media { z-index: 0; }
