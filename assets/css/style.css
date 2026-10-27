@@ -787,14 +787,6 @@ a.pill-dark:hover { background: #000; }
 .ugc-col li:last-child { border-bottom: 0; }
 .ugc-col li::before { content: "+"; position: absolute; left: 0; color: #6FE4FF; font-weight: 700; }
 .ugc-col ul.no li::before { content: "\2013"; color: rgba(255,255,255,.35); }
-.ugc-photos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 44px; }
-.ugc-photo { margin: 0; }
-.ugc-photo img { width: 100%; aspect-ratio: 4/4.6; object-fit: cover; border-radius: 14px; display: block; transition: transform .5s cubic-bezier(.22,.9,.3,1); }
-.ugc-photo:hover img { transform: scale(1.04); }
-.ugc-photo figcaption { font-size: 13px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: #999; margin-top: 10px; }
-.ugc-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(28px, 5vw, 56px); margin-top: 36px; }
-.ugc-logos img { height: 46px; width: auto; max-width: 150px; object-fit: contain; opacity: .8; transition: opacity .3s ease; }
-.ugc-logos img:hover { opacity: 1; }
 .ugc-cta { position: relative; max-width: 820px; margin: 0 auto; padding: clamp(56px, 7vw, 90px) 24px; }
 .ugc-cta-title { font-family: var(--display); font-size: clamp(30px, 4.4vw, 60px); line-height: 1.15; color: #fff; text-transform: uppercase; margin: 0; }
 .corner { position: absolute; width: 22px; height: 22px; }
@@ -806,13 +798,11 @@ a.pill-dark:hover { background: #000; }
   .ugc-vids { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ugc-stats { grid-template-columns: 1fr; gap: 40px; }
   .ugc-cols { grid-template-columns: 1fr; gap: 44px; }
-  .ugc-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
+  }
 @media (max-width: 700px) {
   .ugc-niche { margin-top: 44px; }
   .ugc-vids { gap: 16px; }
-  .ugc-logos img { height: 38px; }
-}
+  }
 
 /* --- UGC niches (travel / beauty / lifestyle) --- */
 .niche { margin-top: 64px; }
@@ -836,3 +826,9 @@ a.pill-dark:hover { background: #000; }
   .nicbeauty-media { flex-wrap: wrap; }
   .niche-photo { width: 46%; }
 }
+
+/* --- UGC trusted-by --- */
+.ugc-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 44px; }
+.ugc-logos img { width: calc(25% - 12px); max-width: 210px; height: 92px; object-fit: contain; padding: 18px; border: 1px solid rgba(0,0,0,.12); border-radius: 14px; background: #fff; filter: grayscale(1); opacity: .75; transition: filter .3s ease, opacity .3s ease; }
+.ugc-logos img:hover { filter: none; opacity: 1; }
+@media (max-width: 900px) { .ugc-logos img { width: calc(50% - 8px); height: 74px; padding: 13px; } }
