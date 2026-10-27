@@ -810,7 +810,8 @@ a.pill-dark:hover { background: #000; }
 .niche-h.ink { color: var(--ink); }
 .niche-tag { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); margin: 14px 0 0; }
 .niche-tag.ink { color: #888; }
-.niche-desc { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,.78); max-width: 54ch; margin: 18px 0 0; }
+.niche-desc { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,.78); max-width: 54ch; margin: 18px 0 52px; }
+.niche-desc.ink { color: #555; }
 .niche-desc.ink { color: #555; }
 .ugc-vids-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .ugc-vids-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -832,3 +833,10 @@ a.pill-dark:hover { background: #000; }
 .ugc-logos img { width: calc(25% - 12px); max-width: 210px; height: 92px; object-fit: contain; padding: 18px; border: 1px solid rgba(0,0,0,.12); border-radius: 14px; background: #fff; filter: grayscale(1); opacity: .75; transition: filter .3s ease, opacity .3s ease; }
 .ugc-logos img:hover { filter: none; opacity: 1; }
 @media (max-width: 900px) { .ugc-logos img { width: calc(50% - 8px); height: 74px; padding: 13px; } }
+
+/* --- UGC hero strip --- */
+.ugc-strip { position: absolute; left: 0; right: 0; bottom: 0; display: flex; height: clamp(160px, 26vh, 280px); opacity: .28; -webkit-mask-image: linear-gradient(to top, #000 55%, transparent); mask-image: linear-gradient(to top, #000 55%, transparent); pointer-events: none; }
+.ugc-strip img { flex: 1; min-width: 0; height: 100%; object-fit: cover; }
+.ugc-strip img + img { border-left: 2px solid #1b1b1c; }
+.detail-hero .ugc-chips { position: relative; z-index: 1; }
+@media (max-width: 700px) { .ugc-strip { height: 150px; } }
