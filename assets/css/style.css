@@ -813,3 +813,26 @@ a.pill-dark:hover { background: #000; }
   .ugc-vids { gap: 16px; }
   .ugc-logos img { height: 38px; }
 }
+
+/* --- UGC niches (travel / beauty / lifestyle) --- */
+.niche { margin-top: 64px; }
+.niche-h { font-family: var(--serif, Georgia, serif); font-size: clamp(44px, 6vw, 96px); line-height: 1; text-transform: uppercase; color: #fff; margin: 0; }
+.niche-h.ink { color: var(--ink); }
+.niche-tag { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); margin: 14px 0 0; }
+.niche-tag.ink { color: #888; }
+.niche-desc { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,.78); max-width: 54ch; margin: 18px 0 0; }
+.niche-desc.ink { color: #555; }
+.ugc-vids-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ugc-vids-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.nicbeauty { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 40px 60px; align-items: start; }
+.nicbeauty-media { display: flex; gap: 22px; align-items: flex-start; }
+.niche-photo { width: min(240px, 40%); aspect-ratio: 445/800; object-fit: cover; border-radius: 16px; display: block; }
+.nicgrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 40px 60px; align-items: start; }
+.section-light .ugc-cap { color: #555; }
+.section-light .ugc-play { border: 1px solid rgba(0,0,0,.08); }
+@media (max-width: 900px) {
+  .ugc-vids-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nicbeauty, .nicgrid { grid-template-columns: 1fr; }
+  .nicbeauty-media { flex-wrap: wrap; }
+  .niche-photo { width: 46%; }
+}
