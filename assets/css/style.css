@@ -759,3 +759,15 @@ a.pill-dark:hover { background: #000; }
 .st-card { width: 100%; border-radius: 16px; overflow: hidden; }
 .st-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
 @media (max-width: 900px) { .st-grid { grid-template-columns: 1fr; gap: 44px; } .st-col .st-desc { max-width: 52ch; } }
+
+/* --- UGC page: video grid + photos --- */
+.ugc-vids { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+.ugc-play { margin: 0; }
+.ugc-play video { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 16px; display: block; background: #000; }
+.ugc-play figcaption { font-size: 13px; color: var(--muted-dark); margin-top: 10px; }
+.ugc-photos { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+.ugc-photo { margin: 0; }
+.ugc-photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px; display: block; }
+.ugc-photo figcaption { font-size: 13px; color: var(--muted-dark); margin-top: 10px; }
+@media (max-width: 900px) { .ugc-vids, .ugc-photos { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 520px) { .ugc-vids { gap: 12px; } }
