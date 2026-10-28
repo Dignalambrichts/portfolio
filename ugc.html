@@ -166,3 +166,52 @@
 <img src="assets/images/logos/lets-dance.png" alt="M.S.D.V. Let's Dance!">
 <img src="assets/images/logos/student-com.png" alt="Student.com">
 <img src="assets/images/logos/lingopie.svg" alt="Lingopie">
+</div>
+</div></section>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="container">
+      <div class="footer-top">
+        <div class="ft-left"><span class="ft-a">See projects</span><span class="ft-b">Portfolio</span></div>
+        <div class="fn-left">
+          <a href="../index.html">Home</a>
+          <a href="../work.html">Our Work</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+        <div class="fn-right">
+          <div class="social-h">Social</div>
+          <div class="social-links">
+            <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/digna-lambrichts">LN</a>
+            <a target="_blank" rel="noopener" href="https://www.instagram.com/diignaa/">IG</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-cta">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <a class="footer-swap" href="mailto:digna.lambrichtsx@gmail.com" aria-label="Email Digna">
+          <span class="fs-line fs-a">Let us help you take your social media to the next level</span>
+          <span class="fs-line fs-b" aria-hidden="true">digna.lambrichtsx@gmail.com</span>
+        </a>
+      </div>
+      <div class="footer-bar">
+        <span>© 2026 DignaStudio. All rights reserved.</span>
+        <span>DignaStudio</span>
+        <span>Europe based.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.ugc-play').forEach(f=>{const v=f.querySelector('video'),b=f.querySelector('.ugc-badge');
+if(!v||!b)return;
+b.addEventListener('click',()=>{document.querySelectorAll('.ugc-play video').forEach(o=>{if(o!==v){o.pause();o.closest('.ugc-play').classList.remove('playing');}});
+v.controls=true;v.play();f.classList.add('playing');});
+v.addEventListener('pause',()=>f.classList.remove('playing'));
+v.addEventListener('play',()=>f.classList.add('playing'));});});
+</script>
+<script src="assets/js/main.js?v=14"></script>
+</body>
+</html>
