@@ -835,7 +835,7 @@ a.pill-dark:hover { background: #000; }
 @media (max-width: 900px) { .ugc-logos img { width: calc(50% - 8px); height: 74px; padding: 13px; } }
 
 /* --- UGC hero strip (behind title) --- */
-.ugc-strip { position: absolute; inset: 0; display: flex; height: 100%; opacity: .26; pointer-events: none;
+.ugc-strip { position: absolute; left: 0; right: 0; top: 44%; transform: translateY(-50%); display: flex; height: clamp(220px, 40vh, 420px); opacity: .3; pointer-events: none;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%); }
 .ugc-strip img { flex: 1; min-width: 0; height: 100%; object-fit: cover; }
