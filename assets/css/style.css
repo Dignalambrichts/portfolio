@@ -844,4 +844,4 @@ a.pill-dark:hover { background: #000; }
 .detail-hero .hero-media { z-index: 0; }
 
 /* --- white logos get dark tiles --- */
-.ugc-logos img.on-dark { background: #1b1b1c; border-color: rgba(0,0,0,.2); }
+.ugc-logos img.on-dark { background: #3d3d40; border-color: rgba(0,0,0,.2); }
