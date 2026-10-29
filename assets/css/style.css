@@ -830,8 +830,8 @@ a.pill-dark:hover { background: #000; }
 
 /* --- UGC trusted-by --- */
 .ugc-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 44px; }
-.ugc-logos img { width: calc(25% - 12px); max-width: 210px; height: 92px; object-fit: contain; padding: 20px; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; background: #3d3d40; opacity: .88; transition: opacity .3s ease, border-color .3s ease; }
-.ugc-logos img:hover { opacity: 1; border-color: rgba(255,255,255,.3); }
+.ugc-logos img { width: calc(25% - 12px); max-width: 210px; height: 92px; object-fit: contain; padding: 20px; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; background: #3d3d40; opacity: 1; transition: opacity .3s ease, border-color .3s ease; }
+.ugc-logos img:hover { opacity: .72; border-color: rgba(255,255,255,.3); }
 @media (max-width: 900px) { .ugc-logos img { width: calc(50% - 8px); height: 74px; padding: 13px; } }
 
 /* --- UGC hero strip (behind title) --- */
