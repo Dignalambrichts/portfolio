@@ -853,3 +853,14 @@ a.pill-dark:hover { background: #000; }
 .ugc-vids-lifestyle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .ugc-logos img.make-white { filter: brightness(0) invert(1); }
+
+/* section colour-flips: stats on dark, columns on light, logos tiles on dark */
+.section-dark .ugc-num { color: #fff; }
+.section-dark .ugc-sub { color: rgba(255,255,255,.6); }
+.section-dark .ugc-label { color: #fff; }
+.section-light .ugc-col h3 { color: var(--ink); }
+.section-light .ugc-col li { color: #444; border-bottom-color: rgba(0,0,0,.1); }
+.section-light .ugc-col li::before { color: #1b8fb0; }
+.section-light .ugc-col ul.no li::before { color: rgba(0,0,0,.35); }
+.section-dark .ugc-logos img { border-color: rgba(255,255,255,.18); }
+.section-dark .ugc-logos img { background: #2c2c2f; }
