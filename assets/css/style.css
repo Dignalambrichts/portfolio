@@ -864,3 +864,14 @@ a.pill-dark:hover { background: #000; }
 .section-light .ugc-col ul.no li::before { color: rgba(0,0,0,.35); }
 .section-dark .ugc-logos img { border-color: rgba(255,255,255,.18); }
 .section-dark .ugc-logos img { background: #2c2c2f; }
+
+/* --- Dutch content: hero pill + strip --- */
+html { scroll-padding-top: 0; }
+#dutch { scroll-margin-top: 170px; }
+.ugc-chips .ugc-chip-link { border: 1px solid rgba(255,255,255,.28); border-radius: 100px; padding: 7px 16px; font-size: 13px; letter-spacing: .02em; color: #fff; text-decoration: none; background: rgba(255,255,255,.1); transition: background .3s ease, border-color .3s ease; position: relative; z-index: 1; }
+.ugc-chips .ugc-chip-link:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.5); }
+.dutch-strip { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 40px 60px; align-items: center; margin-top: 90px; padding-top: 70px; border-top: 1px solid rgba(255,255,255,.14); }
+.dutch-h { font-family: var(--condensed); font-weight: 400; font-size: clamp(34px, 4vw, 58px); line-height: .95; text-transform: uppercase; color: #fff; margin: 10px 0 0; }
+.dutch-strip .niche-desc { margin-top: 16px; }
+.dutch-card { max-width: 260px; }
+@media (max-width: 900px) { .dutch-strip { grid-template-columns: 1fr; margin-top: 64px; padding-top: 48px; } .dutch-card { max-width: 240px; } }
