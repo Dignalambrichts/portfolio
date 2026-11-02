@@ -881,3 +881,9 @@ html { scroll-padding-top: 0; }
 .content-duo .ugc-frame.land video { aspect-ratio: 16 / 9; }
 .content-duo .ugc-frame { border: 1px solid rgba(0,0,0,.08); }
 @media (max-width: 900px) { .content-duo { grid-template-columns: 1fr; } }
+
+/* --- designed content strip --- */
+.designed-strip { display: flex; gap: 18px; align-items: flex-start; margin-top: 44px; }
+.designed-strip img { height: 520px; width: auto; border-radius: 14px; display: block; }
+.section-dark .designed-strip img { border: 1px solid rgba(255,255,255,.1); }
+@media (max-width: 900px) { .designed-strip { flex-direction: column; gap: 16px; } .designed-strip img { height: auto; width: 100%; max-width: 430px; border-radius: 12px; } }
