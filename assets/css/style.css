@@ -875,3 +875,9 @@ html { scroll-padding-top: 0; }
 .dutch-strip .niche-desc { margin-top: 16px; }
 .dutch-card { max-width: 260px; }
 @media (max-width: 900px) { .dutch-strip { grid-template-columns: 1fr; margin-top: 64px; padding-top: 48px; } .dutch-card { max-width: 240px; } }
+
+/* --- content creation duo (landscape + vertical) --- */
+.content-duo { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 22px; align-items: start; margin-top: 44px; }
+.content-duo .ugc-frame.land video { aspect-ratio: 16 / 9; }
+.content-duo .ugc-frame { border: 1px solid rgba(0,0,0,.08); }
+@media (max-width: 900px) { .content-duo { grid-template-columns: 1fr; } }
